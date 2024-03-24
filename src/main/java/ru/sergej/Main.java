@@ -23,6 +23,7 @@ public class Main {
             findStudentById(session, 3L);
             persistStudent(session);
             removeStudent(session, 10L);
+            mergeStudent(session, new Student(Student.randomFirstName(), Student.randomLastName(), 24));
             findStudentsOlderThanAge(session, 20);
 
 
@@ -78,6 +79,14 @@ public class Main {
         session.getTransaction().commit();
 
         System.out.println("Добавлен новый студент:\n" + student);
+    }
+
+    private static void mergeStudent(Session session, Student student) {
+        Transaction transaction = session.beginTransaction();
+        Student mergedStudent = (Student) session.merge(student);
+        transaction.commit();
+
+        System.out.println("Добавлен студент " + mergedStudent);
     }
 
     private static void removeStudent(Session session, Long id) {
