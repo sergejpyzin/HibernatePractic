@@ -69,7 +69,6 @@ public class Main {
         session.saveOrUpdate(student);
         session.getTransaction().commit();
 
-//        student.setId(id);
         student.setAge(random.nextInt(17, 25));
         student.setLastName(Student.randomLastName());
         student.setFirstName(Student.randomFirstName());
@@ -114,10 +113,10 @@ public class Main {
         CriteriaQuery<Student> criteriaQuery = builder.createQuery(Student.class);
         Root<Student> root = criteriaQuery.from(Student.class);
         criteriaQuery.select(root)
-                .where(builder.gt(root.get("age"), 20));
+                .where(builder.gt(root.get("age"), age));
 
         List<Student> students = session.createQuery(criteriaQuery).getResultList();
-        System.out.println("Студенты старше 20 лет:");
+        System.out.println("Студенты старше " + age + " лет:");
         for (Student student : students) {
             System.out.println(student);
         }
