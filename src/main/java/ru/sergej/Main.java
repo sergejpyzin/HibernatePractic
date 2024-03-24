@@ -25,6 +25,8 @@ public class Main {
             removeStudent(session, 10L);
             mergeStudent(session, new Student(Student.randomFirstName(), Student.randomLastName(), 24));
             findStudentsOlderThanAge(session, 20);
+            System.out.println("===============================");
+            readStudents(session);
 
 
         }
