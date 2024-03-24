@@ -75,7 +75,27 @@ public class Main {
         System.out.println("Добавлен новый студент:\n" + student);
     }
 
+    private static void removeStudent(Session session, Long id) {
+        Student studentToRemove = session.find(Student.class, id);
+        if (studentToRemove != null) {
+            session.remove(studentToRemove);
+            System.out.println("Студент удален: " + studentToRemove);
+        } else {
+            System.out.println("Студент с id 1 не найден");
+        }
+    }
 
+    private static void readStudents(Session session) {
+        String hql = "FROM Student"; // HQL запрос для выбора всех записей из таблицы Student
+
+        Query query = session.createQuery(hql, Student.class);
+        List<Student> students = query.getResultList();
+
+        // Выводим информацию о каждом студенте
+        for (Student student : students) {
+            System.out.println(student);
+        }
+    }
 
 
 
