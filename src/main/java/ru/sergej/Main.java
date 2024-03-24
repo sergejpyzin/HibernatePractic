@@ -18,7 +18,7 @@ public class Main {
              Session session = sessionFactory.openSession()) {
             insertStudent(session);
             findStudentById(session, 3L);
-           
+
         }
     }
 
@@ -54,6 +54,27 @@ public class Main {
             System.out.println("Студент с id " + id + " не найден!");
         }
     }
+
+    private static void persistStudent(Session session, Long id) {
+        Random random = new Random();
+        Student student = new Student();
+
+        session.beginTransaction();
+        session.saveOrUpdate(student);
+        session.getTransaction().commit();
+
+        student.setId(id);
+        student.setAge(random.nextInt(17, 25));
+        student.setLastName(Student.randomLastName());
+        student.setFirstName(Student.randomFirstName());
+
+        session.beginTransaction();
+        session.persist(student);
+        session.getTransaction().commit();
+
+        System.out.println("Добавлен новый студент:\n" + student);
+    }
+
 
 
 
