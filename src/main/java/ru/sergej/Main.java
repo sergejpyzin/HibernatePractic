@@ -21,10 +21,10 @@ public class Main {
              Session session = sessionFactory.openSession()) {
             insertStudent(session);
             findStudentById(session, 3L);
-            persistStudent(session, 11L);
+            persistStudent(session);
             removeStudent(session, 10L);
             findStudentsOlderThanAge(session, 20);
-            
+
 
         }
     }
@@ -40,7 +40,6 @@ public class Main {
             String firstName = Student.randomFirstName();
             String lastName = Student.randomLastName();
 
-            student.setId(i);
             student.setFirstName(firstName);
             student.setLastName(lastName);
             student.setAge(random.nextInt(17, 25));
@@ -62,7 +61,7 @@ public class Main {
         }
     }
 
-    private static void persistStudent(Session session, Long id) {
+    private static void persistStudent(Session session) {
         Random random = new Random();
         Student student = new Student();
 
@@ -70,7 +69,7 @@ public class Main {
         session.saveOrUpdate(student);
         session.getTransaction().commit();
 
-        student.setId(id);
+//        student.setId(id);
         student.setAge(random.nextInt(17, 25));
         student.setLastName(Student.randomLastName());
         student.setFirstName(Student.randomFirstName());
