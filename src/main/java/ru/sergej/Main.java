@@ -2,6 +2,9 @@ package ru.sergej;
 
 
 import jakarta.persistence.Query;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Root;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -18,6 +21,10 @@ public class Main {
              Session session = sessionFactory.openSession()) {
             insertStudent(session);
             findStudentById(session, 3L);
+            persistStudent(session, 11L);
+            removeStudent(session, 10L);
+            findStudentsOlderThanAge(session, 20);
+            
 
         }
     }
@@ -76,10 +83,16 @@ public class Main {
     }
 
     private static void removeStudent(Session session, Long id) {
-        Student studentToRemove = session.find(Student.class, id);
-        if (studentToRemove != null) {
-            session.remove(studentToRemove);
-            System.out.println("Студент удален: " + studentToRemove);
+        session.beginTransaction();
+        Student student = session.find(Student.class, id);
+        session.getTransaction().commit();
+
+        if (student != null) {
+            session.beginTransaction();
+            session.remove(student);
+            session.getTransaction().commit();
+
+            System.out.println("Студент удален: " + student);
         } else {
             System.out.println("Студент с id 1 не найден");
         }
@@ -92,6 +105,20 @@ public class Main {
         List<Student> students = query.getResultList();
 
         // Выводим информацию о каждом студенте
+        for (Student student : students) {
+            System.out.println(student);
+        }
+    }
+
+    private static void findStudentsOlderThanAge(Session session, Integer age) {
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<Student> criteriaQuery = builder.createQuery(Student.class);
+        Root<Student> root = criteriaQuery.from(Student.class);
+        criteriaQuery.select(root)
+                .where(builder.gt(root.get("age"), 20));
+
+        List<Student> students = session.createQuery(criteriaQuery).getResultList();
+        System.out.println("Студенты старше 20 лет:");
         for (Student student : students) {
             System.out.println(student);
         }

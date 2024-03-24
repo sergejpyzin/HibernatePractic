@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03cbbcc7-29cd-4cdd-b9d4-1dce490c9ff2" name="Changes" comment="init commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/sergej/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="03cbbcc7-29cd-4cdd-b9d4-1dce490c9ff2" name="Changes" comment="create removeStudent and readStudents methods">
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/sergej/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sergej/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +78,7 @@
       <option name="presentableId" value="Default" />
       <updated>1711175711399</updated>
       <workItem from="1711175712426" duration="5584000" />
-      <workItem from="1711273437731" duration="5696000" />
+      <workItem from="1711273437731" duration="6260000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <option name="closed" value="true" />
@@ -99,7 +96,47 @@
       <option name="project" value="LOCAL" />
       <updated>1711187107216</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="create Student class">
+      <option name="closed" value="true" />
+      <created>1711281445659</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1711281445659</updated>
+    </task>
+    <task id="LOCAL-00004" summary="create insertStudent method">
+      <option name="closed" value="true" />
+      <created>1711281469521</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1711281469521</updated>
+    </task>
+    <task id="LOCAL-00005" summary="create findStudentById method">
+      <option name="closed" value="true" />
+      <created>1711281524804</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1711281524804</updated>
+    </task>
+    <task id="LOCAL-00006" summary="create persistStudent method">
+      <option name="closed" value="true" />
+      <created>1711281557676</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1711281557676</updated>
+    </task>
+    <task id="LOCAL-00007" summary="create removeStudent and readStudents methods">
+      <option name="closed" value="true" />
+      <created>1711281593253</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1711281593253</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -118,6 +155,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="init commit" />
+    <MESSAGE value="create Student class" />
+    <MESSAGE value="create insertStudent method" />
+    <MESSAGE value="create findStudentById method" />
+    <MESSAGE value="create persistStudent method" />
+    <MESSAGE value="create removeStudent and readStudents methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="create removeStudent and readStudents methods" />
   </component>
 </project>
