@@ -17,10 +17,8 @@ public class Main {
         try (SessionFactory sessionFactory = configuration.buildSessionFactory();
              Session session = sessionFactory.openSession()) {
             insertStudent(session);
-            findStudentByID(session, 3L);
-            persistStudent(session, 11L);
-
-            readStudents(session);
+            findStudentById(session, 3L);
+           
         }
     }
 
@@ -46,6 +44,18 @@ public class Main {
         transaction.commit();
 
     }
+
+    private static void findStudentById(Session session, Long id) {
+        Student student = session.find(Student.class, id);
+
+        if (student != null) {
+            System.out.println("Найден студент с id " + id + ":\n" + student);
+        } else {
+            System.out.println("Студент с id " + id + " не найден!");
+        }
+    }
+
+
 
 
 }
