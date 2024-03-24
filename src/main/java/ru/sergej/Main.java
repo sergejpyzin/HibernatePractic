@@ -45,7 +45,7 @@ public class Main {
             student.setLastName(lastName);
             student.setAge(random.nextInt(17, 25));
 
-            session.merge(student);
+            session.persist(student);
         }
 
         transaction.commit();
